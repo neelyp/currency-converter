@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Value from "./Value";
-import Text from "./Inputs/Text";
-import Dropdown from "./Inputs/Dropdown";
+import React, { useEffect, useState } from 'react';
+import Value from './Value';
+import Text from './Inputs/Text';
+import Dropdown from './Inputs/Dropdown';
 
-export const Input = () => {
-  const info = "currencyInfoTest.json";
+export const Input = ({ giveCode, giveSymbol, giveAmnt }) => {
+  const info = 'currencyInfoTest.json';
 
   const [options, setOptions] = useState({});
   const [loading, setLoading] = useState(true);
-  const [code, setCode] = useState("USD");
+  const [code, setCode] = useState('USD');
   const [amnt, setAmnt] = useState(1);
-  const [symbol, setSymbol] = useState("$");
+  const [symbol, setSymbol] = useState('$');
 
   const getInfo = () => {
     const ar = {};
@@ -44,6 +44,11 @@ export const Input = () => {
     if (Object.keys(options).length > 0) setSymbol(options[code].symbol);
   }, [code]);
 
+  // give code, amnt, and symbol to main so it is passed to value
+  useEffect(() => giveCode(code), [code]);
+  useEffect(() => giveAmnt(amnt), [amnt]);
+  useEffect(() => giveSymbol(symbol), [symbol]);
+
   return (
     <div>
       <Text getAmnt={(amnt) => setAmnt(amnt)} />
@@ -51,8 +56,6 @@ export const Input = () => {
         options={options}
         handleChange={(e) => setCode(e.target.value)}
       />
-
-      <Value code={code} amnt={amnt} symbol={symbol} />
     </div>
   );
 };
