@@ -63,12 +63,12 @@ export const Input = ({ giveCode, giveSymbol, giveAmnt }) => {
       <input onChange={() => setUseDrop(!useDrop)} type="checkbox" id={chkId} />
       <label htmlFor={chkId}>Toggle Dropdown</label>
       <br />
-      <Text className="amnt" getAmnt={(amnt) => setAmnt(amnt)} />
+      <Text getAmnt={(amnt) => setAmnt(amnt)} />
       {useDrop ? (
         <Dropdown
           options={options}
           code={code}
-          handleChange={(e) => setCode(e.target.value)}
+          handleChange={(e) => setCode(e)}
         />
       ) : (
         <TextCode chk={chk} getCode={getCode} />
