@@ -1,25 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-const Dropdown = ({ options, handleChange }) => {
+const Dropdown = ({ options, handleChange, code, chk }) => {
   return (
-    <select onChange={handleChange} placeholder='USD'>
-        {Object.keys(options).map((key) => {
-          if (key === "USD") {
-            return (
-              <option selected value={options[key].code}>
-                {options[key].name}
-              </option>
-            );
-          } else {
-            return (
-              <option key={options[key].code} value={options[key].code}>
-                {options[key].name}
-              </option>
-            );
-          }
-        })}
-      </select>
-  )
-}
+    <select
+      value={code}
+      onChange={(e) =>
+        chk !== e.target.value ? handleChange : console.log('e')
+      }
+      placeholder="USD">
+      {console.log(code)}
+      {Object.keys(options).map((key) => (
+        <option key={options[key].code} value={options[key].code}>
+          {options[key].name}
+        </option>
+      ))}
+    </select>
+  );
+};
 
 export default Dropdown;
