@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 const Value = ({ code, amnt, symbol }) => {
-  const api = 'testApi.json';
+  const api =
+    'testApi.json';
   // const api =
   //   'https://api.currencyapi.com/v3/latest?apikey=cur_live_aU2XilzSH1vbQsTvlNpF9rezBFyyQs03NIGd1p1y&currencies=';
   const [val, setVal] = useState(0);
