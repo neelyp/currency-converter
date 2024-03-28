@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 
 const Value = ({ code, amnt, symbol }) => {
   const api =
-    'testApi.json';
-  // const api =
-  //   'https://api.currencyapi.com/v3/latest?apikey=cur_live_aU2XilzSH1vbQsTvlNpF9rezBFyyQs03NIGd1p1y&currencies=';
+    'https://api.currencyapi.com/v3/latest?apikey=cur_live_aU2XilzSH1vbQsTvlNpF9rezBFyyQs03NIGd1p1y&currencies=';
+  // const [api, setApi] = useState('https://api.currencyapi.com/v3/latest?apikey=cur_live_aU2XilzSH1vbQsTvlNpF9rezBFyyQs03NIGd1p1y&currencies=')
+
   const [val, setVal] = useState(0);
 
   useEffect(() => {
     if (code) {
       console.log(code);
       fetch(api)
+        .then((res) => res.json())
         .then((res) => {
-          console.log('fetched api');
-          return res.json();
+          //  setApi(res);
+          setVal(api.data[code].value);
         })
-        .then((res) => setVal(res.data[code].value))
         .catch((e) => console.error(e));
     }
   }, [code]);
