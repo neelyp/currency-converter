@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 const Text = ({ getAmnt }) => {
   const [amnt, setAmnt] = useState(1);
@@ -17,6 +17,7 @@ const Text = ({ getAmnt }) => {
         }}
         type="text"
         placeholder="Enter number of USD"
+        className="in"
       />
 
       <input type="button" value="clear" onClick={() => setAmnt('')} />

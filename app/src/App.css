@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background-color: #1f628e;
 }
 
 code {
@@ -8,8 +9,50 @@ code {
   align-items: center;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  color: #b6e2d3;
+  font-size: large;
 }
 
 .amnt-text {
   display: block;
+}
+
+input {
+  border: none;
+  height: 25px;
+  text-align: center;
+}
+
+.in {
+  background-color: #c0f0f7;
+  margin: 5px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+select {
+  background-color: #c0f0f7;
+  margin: 5px;
+  border: none;
+}
+
+.check {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+  color: black;
+  height: auto;
+}
+
+.check:checked {
+  accent-color: black;
+}
+
+label {
+  color: #b6e2d3;
 }

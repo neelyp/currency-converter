@@ -12,6 +12,7 @@ const TextCode = ({ getCode, chk }) => {
         }}
         type="text"
         placeholder="Enter Target Currency Code"
+        className="in"
       />
       <input type="button" value="Submit" onClick={() => getCode(code)} />
     </div>

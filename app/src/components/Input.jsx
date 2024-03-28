@@ -60,7 +60,12 @@ export const Input = ({ giveCode, giveSymbol, giveAmnt }) => {
 
   return (
     <div>
-      <input onChange={() => setUseDrop(!useDrop)} type="checkbox" id={chkId} />
+      <input
+        className="check"
+        onChange={() => setUseDrop(!useDrop)}
+        type="checkbox"
+        id={chkId}
+      />
       <label htmlFor={chkId}>Toggle Dropdown</label>
       <br />
       <Text getAmnt={(amnt) => setAmnt(amnt)} />

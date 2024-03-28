@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import { Input } from "./components/Input.jsx";
-import Value from "./components/Value.jsx";
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import { Input } from './components/Input.jsx';
+import Value from './components/Value.jsx';
+import FakeValue from './components/FakeValue.jsx';
 
 function App() {
-  const [code, setCode] = useState("USD");
+  const [code, setCode] = useState('USD');
   const [amnt, setAmnt] = useState(1);
-  const [symbol, setSymbol] = useState("$");
+  const [symbol, setSymbol] = useState('$');
   const [calls, setCalls] = useState(300);
   const [hasApi, setHasApi] = useState(true);
 
   const status =
-    "https://api.currencyapi.com/v3/status?apikey=cur_live_aU2XilzSH1vbQsTvlNpF9rezBFyyQs03NIGd1p1y"; // url for status api
+    'https://api.currencyapi.com/v3/status?apikey=cur_live_aU2XilzSH1vbQsTvlNpF9rezBFyyQs03NIGd1p1y'; // url for status api
 
   // get api calls remaining
   useEffect(() => {
@@ -31,24 +32,25 @@ function App() {
   const giveAmnt = (e) => setAmnt(e);
 
   return (
-    <>
-      {hasApi ? (
-        <>
-          <h1>API Calls left: {calls}</h1>
-          <Input
-            giveCode={giveCode}
-            giveSymbol={giveSymbol}
-            giveAmnt={giveAmnt}
-          />
-          <Value code={code} amnt={amnt} symbol={symbol} />
-        </>
-      ) : (
-        <>
-          <h1>No more API keys 😭</h1>
-          <p>Please come back next month </p>
-        </>
-      )}
-    </>
+    <div className="center">
+      <>
+        <Input
+          giveCode={giveCode}
+          giveSymbol={giveSymbol}
+          giveAmnt={giveAmnt}
+        />
+        {!hasApi ? (
+          <div>
+            <Value code={code} amnt={amnt} symbol={symbol} />
+            <p style={{ color: '#B6E2D3' }}>
+              API calls left this month: {calls}
+            </p>
+          </div>
+        ) : (
+          <FakeValue code={code} amnt={amnt} symbol={symbol} />
+        )}
+      </>
+    </div>
   );
 }
 

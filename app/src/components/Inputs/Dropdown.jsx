@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Dropdown = ({ options, handleChange, code, chk }) => {
   return (
@@ -6,14 +6,16 @@ const Dropdown = ({ options, handleChange, code, chk }) => {
       value={code}
       onChange={(e) => {
         const value = e.target.value;
-        chk !== value ? handleChange(value) : console.log("e");
-        // handleChange
+        chk !== value
+          ? handleChange(value)
+          : console.error("Value didn't change");
       }}
-      placeholder="USD"
-    >
-      {console.log(code)}
+      placeholder="USD">
       {Object.keys(options).map((key) => (
-        <option key={options[key].code} value={options[key].code}>
+        <option
+          className="in"
+          key={options[key].code}
+          value={options[key].code}>
           {options[key].name}
         </option>
       ))}
