@@ -3,6 +3,7 @@ import './App.css';
 import { Input } from './components/Input.jsx';
 import Value from './components/Value.jsx';
 import FakeValue from './components/FakeValue.jsx';
+import SpeedInsights from '@vercel/speed-insights';
 
 function App() {
   const [code, setCode] = useState('USD');
@@ -50,6 +51,7 @@ function App() {
           <FakeValue code={code} amnt={amnt} symbol={symbol} />
         )}
       </>
+      <SpeedInsights />
     </div>
   );
 }
