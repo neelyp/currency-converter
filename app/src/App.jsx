@@ -39,7 +39,7 @@ function App() {
           giveSymbol={giveSymbol}
           giveAmnt={giveAmnt}
         />
-        {!hasApi ? (
+        {hasApi ? (
           <div>
             <Value code={code} amnt={amnt} symbol={symbol} />
             <p style={{ color: '#B6E2D3' }}>

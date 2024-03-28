@@ -26,7 +26,9 @@ const FakeValue = ({ code, amnt, symbol }) => {
         {symbol}
         {(val * amnt).toFixed(2).toLocaleString()}
       </code>
-      <p>Ran out of free API calls... (Data from {date})</p>
+      <p style={{ color: '#4a2319' }}>
+        Ran out of free API calls... (Data from {date})
+      </p>
     </div>
   );
 };
