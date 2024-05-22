@@ -19,8 +19,16 @@ function App() {
     fetch(status)
       .then((res) => res.json())
       .then((res) => {
-        setCalls(res.quotas.month.remaining);
-
+        try {
+          setCalls(res.quotas.month.remaining);
+        } catch {
+          if (
+            res.message ===
+            'You used all your monthly requests. Please upgrade your plan at https://app.currencyapi.com/subscription'
+          ) {
+            setHasApi(false);
+          }
+        }
         if (calls <= 0) {
           setHasApi(false);
         }
